@@ -41,6 +41,7 @@ android {
 
 dependencies {
     implementation(libs.moshi.kotlin)
+    implementation(libs.compose.shimmer)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.compose)
     implementation(libs.androidx.core.splashscreen)
