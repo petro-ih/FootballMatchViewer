@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FootballMatchViewer</string>
+    <string name="error.no_internet.title">No internet connection</string>
+    <string name="error.no_internet.description">Please check your internet connection and press the button to try again.</string>
+    <string name="error.no_internet.cta">Retry</string>
+    <string name="error.generic.title">Something went wrong</string>
+    <string name="error.generic.description">We apologise for the error. Please try again later.</string>
+    <string name="error.generic.cta">Retry</string>
 </resources>
