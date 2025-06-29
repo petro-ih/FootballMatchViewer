@@ -2,7 +2,6 @@ package com.footballmatchviewer.data.network.dto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import java.util.Date
 
 @JsonClass(generateAdapter = false)
 data class FixtureResponse(
@@ -22,15 +21,15 @@ data class FixtureResponse(
 
     @JsonClass(generateAdapter = false)
     data class Fixture(
+        @Json(name = "id")
+        val id: Long,
         @Json(name = "referee")
         val referee: String,
         @Json(name = "timestamp")
         val timeStampSeconds: Long,
         @Json(name = "status")
         val status: Status
-    ) {
-        val timeStamp = Date(timeStampSeconds * 1000)
-    }
+    )
 
     @JsonClass(generateAdapter = false)
     data class Status(
@@ -51,7 +50,7 @@ data class FixtureResponse(
     @JsonClass(generateAdapter = false)
     data class Team(
         @Json(name = "id")
-        val id: Int,
+        val id: Long,
         @Json(name = "name")
         val name: String,
         @Json(name = "logo")

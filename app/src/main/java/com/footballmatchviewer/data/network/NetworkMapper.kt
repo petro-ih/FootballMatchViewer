@@ -13,12 +13,15 @@ internal class NetworkMapper @Inject constructor() {
     }
 
     private fun mapMatchItem(response: Response) = MatchModel(
+        id = response.fixture.id,
         homeTeam = MatchModel.Team(
+            id = response.teams.home.id,
             name = response.teams.home.name,
             icon = response.teams.home.logo,
             goals = response.goals.home
         ),
         awayTeam = MatchModel.Team(
+            id = response.teams.away.id,
             name = response.teams.away.name,
             icon = response.teams.away.logo,
             goals = response.goals.away

@@ -2,11 +2,13 @@ package com.footballmatchviewer.data.storage
 
 import android.content.Context
 import androidx.room.Room
+import com.footballmatchviewer.data.MatchesDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -25,4 +27,15 @@ object DatabaseModule {
 
     @Provides
     fun provideMatchDao(db: AppDatabase): MatchDao = db.matchDao()
+
+    @Provides
+    fun provideTeamDao(db: AppDatabase): TeamDao = db.teamDao()
+
+    @Provides
+    @Database
+    internal fun provideDatabaseDataSource(impl: StorageMatchesDataSource): MatchesDataSource = impl
+
+    @Qualifier
+    @Retention(AnnotationRetention.BINARY)
+    annotation class Database
 }
