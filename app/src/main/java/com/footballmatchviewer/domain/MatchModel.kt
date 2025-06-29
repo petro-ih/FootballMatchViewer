@@ -12,7 +12,7 @@ data class MatchModel(
         val id: Long,
         val name: String,
         val icon: String,
-        val goals: Int
+        val goals: Int?
     )
 }
 

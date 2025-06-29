@@ -7,6 +7,7 @@ import com.footballmatchviewer.domain.MatchesUseCase
 import com.footballmatchviewer.domain.Order
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -40,6 +41,7 @@ class MatchesViewModel @Inject constructor(
     private suspend fun refresh(force: Boolean) {
         try {
             uiState.value = MatchesUiState.Loading(isRefreshing = force)
+            delay(1_000) // Simulate long server response
             val matches = matchesUseCase
                 .getMatches(
                     order = order.value,

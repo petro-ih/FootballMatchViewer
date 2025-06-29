@@ -3,6 +3,7 @@ package com.footballmatchviewer.ui.screen.matches
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -29,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.footballmatchviewer.R
 
 @Composable
 fun MatchesCard(
@@ -48,28 +51,7 @@ fun MatchesCard(
                 .height(100.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(4.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                AsyncImage(
-                    model = match.homeTeam.icon,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                )
-                Text(
-                    text = match.homeTeam.name,
-                    maxLines = 2,
-                    softWrap = true,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
+            Team(match.homeTeam)
 
             VerticalDivider(
                 modifier = Modifier
@@ -101,8 +83,10 @@ fun MatchesCard(
 
                 Spacer(modifier = Modifier.height(10.dp))
 
+                val goalsHome = match.homeTeam.goals?.toString() ?: "-"
+                val goalsAway = match.awayTeam.goals?.toString() ?: "-"
                 Text(
-                    text = "${match.homeTeam.goals}:${match.awayTeam.goals}",
+                    text = "$goalsHome:$goalsAway",
                     fontSize = 32.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center
@@ -116,29 +100,36 @@ fun MatchesCard(
                 color = Color.Black.copy(alpha = 0.2f)
             )
 
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(4.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                AsyncImage(
-                    model = match.awayTeam.icon,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(40.dp)
-                        .clip(CircleShape)
-                )
-                Text(
-                    text = match.awayTeam.name,
-                    maxLines = 2,
-                    softWrap = true,
-                    overflow = TextOverflow.Ellipsis,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
-            }
+            Team(match.awayTeam)
         }
+    }
+}
+
+@Composable
+fun @Composable RowScope.Team(team: MatchUiItem.Team) {
+    Column(
+        modifier = Modifier
+            .weight(1f)
+            .padding(4.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        AsyncImage(
+            model = team.icon,
+            contentDescription = null,
+            placeholder = painterResource(R.drawable.ic_team_placeholder),
+            error = painterResource(R.drawable.ic_team_placeholder),
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+        )
+        Text(
+            text = team.name,
+            maxLines = 2,
+            softWrap = true,
+            overflow = TextOverflow.Ellipsis,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 

@@ -24,6 +24,6 @@ data class MatchEntity(
     val homeTeamId: Long,
     val awayTeamId: Long,
     val date: Long,
-    val homeTeamGoals: Int,
-    val awayTeamGoals: Int,
+    val homeTeamGoals: Int?,
+    val awayTeamGoals: Int?,
 )

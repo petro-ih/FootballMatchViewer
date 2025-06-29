@@ -9,6 +9,6 @@ data class MatchUiItem (
     data class Team(
         val name: String,
         val icon: String,
-        val goals: Int
+        val goals: Int?
     )
 }

@@ -16,27 +16,15 @@ data class FixtureResponse(
         @Json(name = "teams")
         val teams: Teams,
         @Json(name = "goals")
-        val goals: Goals
+        val goals: Goals?
     )
 
     @JsonClass(generateAdapter = false)
     data class Fixture(
         @Json(name = "id")
         val id: Long,
-        @Json(name = "referee")
-        val referee: String,
         @Json(name = "timestamp")
         val timeStampSeconds: Long,
-        @Json(name = "status")
-        val status: Status
-    )
-
-    @JsonClass(generateAdapter = false)
-    data class Status(
-        @Json(name = "long")
-        val long: String,
-        @Json(name = "short")
-        val short: String,
     )
 
     @JsonClass(generateAdapter = false)
