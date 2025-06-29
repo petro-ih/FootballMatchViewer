@@ -1,12 +1,8 @@
-package com.footballmatchviewer.network
+package com.footballmatchviewer.data.network.dto
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.serialization.SerialName
-import java.io.Serial
-import java.net.IDN
 import java.util.Date
-
 
 @JsonClass(generateAdapter = false)
 data class FixtureResponse(

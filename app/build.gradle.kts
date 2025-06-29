@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -16,6 +18,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_BASE_URL", "\"https://v3.football.api-sports.io/\"")
+        buildConfigField("String", "API_KEY", "\"08b6a7d1817984d57a730a735ed9d98b\"")
     }
 
     buildTypes {
@@ -36,11 +41,23 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    kotlin {
+        sourceSets.configureEach {
+            kotlin.srcDir("build/generated/ksp/${name}/kotlin")
+        }
     }
 }
 
 dependencies {
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.hilt.android.compiler)
     implementation(libs.moshi.kotlin)
+    implementation(libs.logging.interceptor)
     implementation(libs.compose.shimmer)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.compose)
