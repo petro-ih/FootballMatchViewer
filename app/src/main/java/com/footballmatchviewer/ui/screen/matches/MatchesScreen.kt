@@ -97,7 +97,7 @@ fun MatchesTopBar(
         },
         actions = {
             var order = viewModel.order.collectAsState()
-            val rotation by animateFloatAsState(if (order.value == Order.ASCENDING) 0f else 180f)
+            val rotation by animateFloatAsState(if (order.value == Order.DESCENDING) 0f else 180f)
             IconButton(onClick = {
                 viewModel.onChangeOrderClick()
             }) {
