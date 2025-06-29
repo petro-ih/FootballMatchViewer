@@ -21,17 +21,17 @@ class MatchesViewModel @Inject constructor(
         retryLoading()
     }
 
-    fun retryLoading() {
+    fun retryLoading(force: Boolean = false) {
         loadingJob?.cancel()
         loadingJob = viewModelScope.launch {
-            refresh()
+            refresh(force)
         }
     }
 
-    private suspend fun refresh() {
+    private suspend fun refresh(force: Boolean) {
         try {
             uiState.value = MatchesUiState.Loading
-            val matches = matchesDataSource.getMatches(season = 2021, league = 39)
+            val matches = matchesDataSource.getMatches(season = 2021, league = 39, forceReload = force)
             uiState.value = MatchesUiState.Success(matches.map(matchesUiMapper::mapMatch))
         } catch (e: java.io.IOException) {
             uiState.value = MatchesUiState.NoInternet

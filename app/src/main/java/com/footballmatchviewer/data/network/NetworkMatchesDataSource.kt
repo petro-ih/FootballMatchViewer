@@ -11,7 +11,8 @@ internal class NetworkMatchesDataSource @Inject constructor(
 
     override suspend fun getMatches(
         league: Int,
-        season: Int
+        season: Int,
+        forceReload: Boolean
     ): List<MatchModel> = footballApi.getFixtures(
         season = season,
         league = league

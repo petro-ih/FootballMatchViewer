@@ -14,11 +14,14 @@ class MatchesRepository @Inject internal constructor(
 
     override suspend fun getMatches(
         league: Int,
-        season: Int
+        season: Int,
+        forceReload: Boolean
     ): List<MatchModel> {
-        val matchesInCache = storageDataSource.getMatches(league, season)
-        if (matchesInCache.isNotEmpty()) {
-            return matchesInCache
+        if (!forceReload) {
+            val matchesInCache = storageDataSource.getMatches(league, season)
+            if (matchesInCache.isNotEmpty()) {
+                return matchesInCache
+            }
         }
 
         val loadedMatches = networkDataSource.getMatches(league, season)

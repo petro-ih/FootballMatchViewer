@@ -10,7 +10,11 @@ class StorageMatchesDataSource @Inject constructor(
     private val mapper: StorageMapper,
 ) : MatchesDataSource {
 
-    override suspend fun getMatches(league: Int, season: Int): List<MatchModel> {
+    override suspend fun getMatches(
+        league: Int,
+        season: Int,
+        forceReload: Boolean
+    ): List<MatchModel> {
         return matchDao.getAllMatches().map(mapper::mapMatchEntityToModel)
     }
 
