@@ -1,9 +1,11 @@
 package com.footballmatchviewer.ui.screen.matches
 
+import android.content.res.Configuration
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.Settings
@@ -19,6 +21,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -55,7 +58,13 @@ internal fun MatchesScreen(
                         .fillMaxSize()
                         .padding(paddingValues),
                     content = {
-                        LazyColumn(modifier = Modifier.fillMaxSize()) {
+                        val configuration = LocalConfiguration.current
+                        val columns = if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 2 else 1
+
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(columns),
+                            modifier = Modifier.fillMaxSize()
+                        ) {
                             if (state is MatchesUiState.Success) {
                                 items(state.matches.size) { i ->
                                     MatchesCard(match = state.matches[i])
