@@ -1,4 +1,4 @@
-package com.footballmatchviewer.ui.screen.matches
+package com.footballmatchviewer.ui.screen.error
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Box

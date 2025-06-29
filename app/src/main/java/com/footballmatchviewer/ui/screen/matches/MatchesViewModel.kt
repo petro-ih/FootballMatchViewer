@@ -1,8 +1,10 @@
 package com.footballmatchviewer.ui.screen.matches
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.footballmatchviewer.data.MatchesDataSource
+import com.footballmatchviewer.domain.MatchesUseCase
+import com.footballmatchviewer.domain.Order
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,10 +14,12 @@ import javax.inject.Inject
 @HiltViewModel
 class MatchesViewModel @Inject constructor(
     private val matchesUiMapper: MatchesUiMapper,
-    private val matchesDataSource: MatchesDataSource,
+    private val matchesUseCase: MatchesUseCase,
 ) : ViewModel() {
     private var loadingJob: Job? = null
-    val uiState = MutableStateFlow<MatchesUiState>(MatchesUiState.Loading)
+
+    val order = MutableStateFlow(Order.ASCENDING)
+    val uiState = MutableStateFlow<MatchesUiState>(MatchesUiState.Loading(isRefreshing = false))
 
     init {
         retryLoading()
@@ -28,16 +32,25 @@ class MatchesViewModel @Inject constructor(
         }
     }
 
+    fun onChangeOrderClick() {
+        order.value = order.value.inversed()
+        retryLoading()
+    }
+
     private suspend fun refresh(force: Boolean) {
         try {
-            uiState.value = MatchesUiState.Loading
-            val matches = matchesDataSource.getMatches(season = 2021, league = 39, forceReload = force)
+            uiState.value = MatchesUiState.Loading(isRefreshing = force)
+            val matches = matchesUseCase
+                .getMatches(
+                    order = order.value,
+                    forceReload = force
+                )
             uiState.value = MatchesUiState.Success(matches.map(matchesUiMapper::mapMatch))
         } catch (e: java.io.IOException) {
             uiState.value = MatchesUiState.NoInternet
         } catch (e: Exception) {
             uiState.value = MatchesUiState.Error(e.localizedMessage ?: "Unknown error")
-            e.printStackTrace()
+            Log.e("MatchesViewModel", "Unable to load matches", e)
         }
     }
 }

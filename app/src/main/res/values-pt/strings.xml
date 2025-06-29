@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Visualizador de Partidas de Futebol</string>
+
+    <string name="back">Voltar</string>
+
+    <string name="error.no_internet.title">Sem conexão com a internet</string>
+    <string name="error.no_internet.description">Verifique sua conexão com a internet e pressione o botão para tentar novamente.</string>
+    <string name="error.no_internet.cta">Tentar novamente</string>
+    <string name="error.generic.title">Algo deu errado</string>
+    <string name="error.generic.description">Pedimos desculpas pelo erro. Por favor, tente novamente mais tarde.</string>
+    <string name="error.generic.cta">Tentar novamente</string>
+
+    <string name="screen.matches.title">Partidas</string>
+    <string name="screen.matches.settings">Configurações</string>
+    <string name="screen.terms.title">Termos e Condições</string>
+
+    <string name="screen.settings.title">Configurações</string>
+    <string name="screen.settings.theme">Tema</string>
+    <string name="screen.settings.theme.system">Sistema</string>
+    <string name="screen.settings.theme.dark">Escuro</string>
+    <string name="screen.settings.theme.light">Claro</string>
+    <string name="screen.settings.language">Idioma</string>
+    <string name="screen.settings.language.en">Inglês</string>
+    <string name="screen.settings.language.uk">Ucraniano</string>
+    <string name="screen.settings.language.pt">Português</string>
+
+</resources>

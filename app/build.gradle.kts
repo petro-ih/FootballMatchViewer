@@ -48,12 +48,19 @@ android {
             kotlin.srcDir("build/generated/ksp/${name}/kotlin")
         }
     }
+    androidResources{
+        //noinspection MissingResourcesProperties
+        generateLocaleConfig = true
+    }
 }
 
 dependencies {
     implementation(libs.androidx.material.icons.extended)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.androidx.datastore.preferences)
     ksp(libs.androidx.room.compiler)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)

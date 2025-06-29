@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Перегляд матчів з футболу</string>
+
+    <string name="back">Назад</string>
+
+    <string name="error.no_internet.title">Немає підключення до інтернету</string>
+    <string name="error.no_internet.description">Перевірте підключення до інтернету та натисніть кнопку, щоб спробувати ще раз.</string>
+    <string name="error.no_internet.cta">Спробувати ще раз</string>
+    <string name="error.generic.title">Щось пішло не так</string>
+    <string name="error.generic.description">Вибачте за помилку. Будь ласка, спробуйте пізніше.</string>
+    <string name="error.generic.cta">Спробувати ще раз</string>
+
+    <string name="screen.matches.title">Матчі</string>
+    <string name="screen.matches.settings">Налаштування</string>
+    <string name="screen.terms.title">Умови та положення</string>
+
+    <string name="screen.settings.title">Налаштування</string>
+    <string name="screen.settings.theme">Тема</string>
+    <string name="screen.settings.theme.system">Системна</string>
+    <string name="screen.settings.theme.dark">Темна</string>
+    <string name="screen.settings.theme.light">Світла</string>
+    <string name="screen.settings.language">Мова</string>
+    <string name="screen.settings.language.en">Англійська</string>
+    <string name="screen.settings.language.uk">Українська</string>
+    <string name="screen.settings.language.pt">Португальська</string>
+</resources>
