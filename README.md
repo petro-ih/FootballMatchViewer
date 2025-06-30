@@ -1,0 +1,55 @@
+# Football Match Viewer (Jetpack Compose App)
+
+A modern Android application built with Jetpack Compose that displays upcoming football matches. 
+The app features theming, localization, error handling for no internet connection, and settings for choosing language and theme.
+
+---
+
+## 📱 Demo
+
+### First Launch Without Internet
+[![First Launch Without Internet](https://img.youtube.com/vi/placeholder/0.jpg)](demo/1st_launch_no_internet.mov)
+
+▶️ [Watch Demo Video – No Internet](demo/1st_launch_no_internet.mov)
+
+### Full Demo
+[![App Demo](https://img.youtube.com/vi/placeholder/0.jpg)](demo/demo.mov)
+
+▶️ [Watch Full Demo Video](demo/demo.mov)
+
+---
+
+## 📦 Download APK
+
+You can test the app by downloading the debug APK:
+
+🔗 [Download app-debug.apk](demo/app-debug.apk)
+
+---
+
+## 🚀 Features
+
+- ⚽ Browse upcoming football matches
+- 🌐 Language support: English, Ukrainian, Portuguese
+- 🎨 Light/Dark/System theme options
+- 📶 Handles no internet state gracefully
+- 🔁 Sorting by match date
+- ⚙️ Easy navigation and modern UI with Jetpack Compose
+
+---
+
+## 🛠️ Tech Stack
+
+- Jetpack Compose
+- Hilt (Dependency Injection)
+- Navigation Compose
+- Coil (Image loading)
+- Kotlin Coroutines + Flow
+- ViewModel + State management
+- AppCompat Locale APIs
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
