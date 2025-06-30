@@ -8,7 +8,7 @@ The app features theming, localization, error handling for no internet connectio
 ## 📱 Demo
 
 ### First Launch Without Internet
-[![First Launch Without Internet](https://github.com/user-attachments/assets/1d6e151c-c1c1-457d-a25d-e9bce37a28d2)](demo/1st_launch_no_internet.mov)
+[![First Launch Without Internet](https://github.com/user-attachments/assets/1d6e151c-c1c1-457d-a25d-e9bce37a28d2)](https://github.com/user-attachments/assets/1d6e151c-c1c1-457d-a25d-e9bce37a28d2)
 
 ▶️ [Watch Demo Video – No Internet](https://github.com/user-attachments/assets/1d6e151c-c1c1-457d-a25d-e9bce37a28d2)
 
