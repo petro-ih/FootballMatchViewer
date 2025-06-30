@@ -8,14 +8,14 @@ The app features theming, localization, error handling for no internet connectio
 ## 📱 Demo
 
 ### First Launch Without Internet
-[![First Launch Without Internet](https://img.youtube.com/vi/placeholder/0.jpg)](demo/1st_launch_no_internet.mov)
+[![First Launch Without Internet](https://github.com/user-attachments/assets/1d6e151c-c1c1-457d-a25d-e9bce37a28d2)](demo/1st_launch_no_internet.mov)
 
-▶️ [Watch Demo Video – No Internet](demo/1st_launch_no_internet.mov)
+▶️ [Watch Demo Video – No Internet](https://github.com/user-attachments/assets/1d6e151c-c1c1-457d-a25d-e9bce37a28d2)
 
 ### Full Demo
-[![App Demo](https://img.youtube.com/vi/placeholder/0.jpg)](demo/demo.mov)
+[![App Demo](https://github.com/user-attachments/assets/dbf07ea8-4a73-4e64-9d2f-d98e6e63eb96)](https://github.com/user-attachments/assets/dbf07ea8-4a73-4e64-9d2f-d98e6e63eb96)
 
-▶️ [Watch Full Demo Video](demo/demo.mov)
+▶️ [Watch Full Demo Video](https://github.com/user-attachments/assets/dbf07ea8-4a73-4e64-9d2f-d98e6e63eb96)
 
 ---
 
@@ -23,7 +23,7 @@ The app features theming, localization, error handling for no internet connectio
 
 You can test the app by downloading the debug APK:
 
-🔗 [Download app-debug.apk](demo/app-debug.apk)
+🔗 [Download app-debug.apk](https://github.com/petro-ih/FootballMatchViewer/releases/download/demo/app-debug.apk)
 
 ---
 
